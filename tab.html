@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabs</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+    <button aria-pressed="true">Thème Sombre</button>
+    <nav>
+        <button aria-expanded="true" aria-controls="main-nav">Menu</button>
+        <ul class="main-nav" id="main-nav">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </nav>
+
+</header>
+<div>
+    <div class="tabs" role="tablist" aria-label="Sections du tableau de bord">
+        <button role="tab">Tableau de bord</button>
+        <button role="tab">Utilisateurs</button>
+        <button role="tab">Options</button>
+    </div>
+    <section role="tabpanel" aria-label="...">
+        Contenu de l'onglet
+        <button aria-expanded="true" aria-controls="license">Licence</button>
+        <div id="license">
+            <p>...</p>
+        </div>
+        <details>
+            <summary>Licence</summary>
+            <p>...</p>
+        </details>
+    </section>
+</div>
+</body>
+</html>
