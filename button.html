@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vrai faux bouton</title>
+    <style>
+        :root {
+            --border-radius: 4px;
+            --btn-bg-color: #d1d1d1;
+            --btn-color: #010101;
+
+        }
+
+        button {
+            all: unset;
+        }
+
+        .btn {
+            border-radius: var(--border-radius);
+            background-color: var(--btn-bg-color);
+            color: var(--btn-color);
+            padding: .5rem .75rem;
+            font-weight: 500;
+            display: inline-flex;
+            margin: .5rem;
+
+            &:focus:not([aria-disabled="true"]) {
+                outline: 2px solid blue;
+            }
+        }
+
+        [aria-disabled="true"] {
+            opacity: .7;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+
+<div role="button" class="btn" tabindex="0" aria-disabled="true">
+    Faire quelque chose
+</div>
+<p>
+    <button class="btn" disabled>
+        Vrai bouton
+    </button>
+</p>
+
+<script>
+
+    function action() {
+        alert('bouton cliqué');
+    }
+
+    document.querySelectorAll('.btn').forEach(el => {
+
+        el.addEventListener('click', action);
+        el.addEventListener('keydown', e => {
+            if (e.key === "Enter") {
+                action();
+            }
+        });
+
+        el.addEventListener('keyup', e => {
+            if (e.key === " ") {
+                action();
+            }
+        });
+    });
+
+</script>
+</body>
+</html>
